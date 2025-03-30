@@ -117,9 +117,10 @@ Run tests with:
 ```bash
 npm run test        # Run unit tests
 npm run test:cov    # Show test coverage
+```
 ---
 
-### 🧠 Key Architectural Decisions
+## 🧠 Key Architectural Decisions
 
 ### Modular Structure
 The application is organized into modules, each with specific responsibilities:
@@ -154,7 +155,7 @@ The application is organized into modules, each with specific responsibilities:
 
 ---
 
-### 📬 Example API Requests
+## 📬 Example API Requests
 
 > 🛡 All `tasks` routes require Bearer Token authentication.
 
