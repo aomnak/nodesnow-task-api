@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: tasks_db
+      NODE_ENV: development
+      PORT: 3000
+      JWT_SECRET: this_is_a_secret_key
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:17.4
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tasks_db
+    networks:
+      app-network:
+        aliases:
+          - postgres
+
+networks:
+  app-network:
+    driver: bridge
