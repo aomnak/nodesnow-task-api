@@ -60,11 +60,11 @@ cd nodesnow-task-api
 Create a `.env` file in the root directory:
 
 ```
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
-DB_DATABASE=task_management
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_USER=postgres
+DATABASE_PASSWORD=postgres
+DATABASE_NAME=tasks_db
 JWT_SECRET=your_jwt_secret_here
 ```
 
