@@ -10,7 +10,7 @@ describe('TasksService', () => {
   let taskModel: any;
 
   beforeEach(async () => {
-    // สร้าง mock object สำหรับ Task model
+
     taskModel = {
       create: jest.fn(),
       findAll: jest.fn(),
@@ -91,7 +91,6 @@ describe('TasksService', () => {
         status: 'in_progress' as 'in_progress',
       };
   
-      // สร้าง mock task object พร้อม method update
       const mockTask = {
         id: taskId,
         title: 'Old Title',
@@ -101,7 +100,6 @@ describe('TasksService', () => {
         update: jest.fn().mockResolvedValue({ ...updateTaskDto, id: taskId, userId: user.userId, updatedAt: new Date(), createdAt: new Date() }),
       };
   
-      // ให้ getTaskById คืนค่า mockTask
       taskModel.findOne.mockResolvedValue(mockTask);
   
       const result = await tasksService.updateTask(taskId, updateTaskDto, user);
@@ -116,7 +114,6 @@ describe('TasksService', () => {
       const user = { userId: 'user-uuid' };
       const taskId = 'task-uuid';
 
-      // สร้าง mock task object พร้อม method destroy
       const mockTask = {
         id: taskId,
         title: 'Task',

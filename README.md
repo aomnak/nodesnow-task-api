@@ -138,6 +138,8 @@ The application is organized into modules, each with specific responsibilities:
 - **JWT-based authentication** with Passport.js
 - Password hashing with bcrypt for secure storage
 - Protected routes using JwtAuthGuard
+- 🛡️ JWT tokens are generated using `jsonwebtoken` with a secret loaded from environment variables (`JWT_SECRET`).  
+  Tokens expire in 1 hour. All protected routes require a valid token sent via `Authorization: Bearer <token>`.
 
 ### API Documentation
 - **Swagger UI** auto-generated API documentation

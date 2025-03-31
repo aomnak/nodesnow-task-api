@@ -9,7 +9,7 @@ describe('UsersService', () => {
   let userModel: any;
 
   beforeEach(async () => {
-    // สร้าง mock object สำหรับ User model
+    // Create a mock object for the User model
     userModel = {
       findOne: jest.fn(),
       create: jest.fn(),
@@ -75,10 +75,9 @@ describe('UsersService', () => {
     it('should rethrow an error if userModel.create fails', async () => {
       const createUserDto = { email: 'dbfail@example.com', password: 'password' };
     
-      // mock findOne ให้ไม่มีผู้ใช้ซ้ำ
+      // Mock findOne to simulate no duplicate user found
       userModel.findOne.mockResolvedValue(null);
     
-      // จำลองให้ create โยน error (เช่น DB Error)
       userModel.create.mockRejectedValue(new Error('DB Error'));
     
       await expect(usersService.createUser(createUserDto)).rejects.toThrow('DB Error');
